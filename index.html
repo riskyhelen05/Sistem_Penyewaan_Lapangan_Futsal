@@ -3,59 +3,43 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Sistem Penyewaan Lapangan Futsal</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login - Sistem Penyewaan Lapangan Futsal</title>
 </head>
 <body>
 
-    <h1>Form Booking Lapangan Futsal</h1>
+    <h2>Login Sistem Penyewaan Lapangan Futsal</h2>
 
-    <form id="bookingForm">
+    <form id="loginForm">
+        <label>Username:</label><br>
+        <input type="text" id="username" required><br><br>
 
-        <label>Nama Penyewa:</label>
-        <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+        <label>Password:</label><br>
+        <input type="password" id="password" required><br><br>
 
-        <label>No WhatsApp:</label>
-        <input type="text" id="nowa" placeholder="08xxxxxxxxxx">
-
-        <label>Pilih Lapangan:</label>
-        <select id="lapangan">
-            <option value="">-- Pilih Lapangan --</option>
-            <option value="A">Lapangan A</option>
-            <option value="B">Lapangan B</option>
-            <option value="C">Lapangan C</option>
-            <option value="D">Lapangan D</option>
-        </select>
-
-        <label>Tanggal Main:</label>
-        <input type="date" id="tanggal">
-
-        <label>Jam Mulai:</label>
-        <input type="time" id="jamMulai">
-
-        <label>Durasi (Jam):</label>
-        <select id="durasi">
-            <option value="">-- Pilih Durasi --</option>
-            <option value="1">1 Jam</option>
-            <option value="2">2 Jam</option>
-            <option value="3">3 Jam</option>
-            <option value="4">4 Jam</option>
-        </select>
-
-        <label>Metode Pembayaran:</label>
-        <select id="metode">
-            <option value="">-- Pilih Metode --</option>
-            <option value="Cash">Cash</option>
-            <option value="Transfer">Transfer</option>
-            <option value="QRIS">QRIS</option>
-        </select>
-
-        <br><br>
-        <button type="submit">Booking Sekarang</button>
-
+        <button type="submit">Login</button>
     </form>
 
-    <script src="script.js"></script>
+    <p id="error" style="color:red;"></p>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e){
+            e.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Simulasi login sementara (nanti bisa dihubungkan ke backend)
+            if(username === "admin1" && password === "123"){
+                window.location.href = "dashboard-admin.html";
+            } else if(username === "kasir1" && password === "123"){
+                window.location.href = "dashboard-kasir.html";
+            } else if(username === "customer1" && password === "123"){
+                window.location.href = "dashboard-customer.html";
+            } else {
+                document.getElementById("error").innerText = "Username atau password salah!";
+            }
+        });
+    </script>
 
 </body>
 </html>
