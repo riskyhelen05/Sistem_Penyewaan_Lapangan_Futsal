@@ -19,23 +19,23 @@
     <h2>Dashboard Customer - Booking</h2>
 
     <h3>Form Booking</h3>
-    <form>
+    <form id="bookingForm">
         <label>Pilih Lapangan:</label><br>
-        <select>
+        <select id="lapangan">
             <option>Lapangan A</option>
             <option>Lapangan B</option>
         </select><br><br>
 
         <label>Tanggal:</label><br>
-        <input type="date"><br><br>
+        <input type="date" id="tanggal" required><br><br>
 
         <label>Jam Mulai:</label><br>
-        <input type="time"><br><br>
+        <input type="time" id="jamMulai" required><br><br>
 
         <label>Jam Selesai:</label><br>
-        <input type="time"><br><br>
+        <input type="time" id="jamSelesai" required><br><br>
 
-        <button type="submit">Booking</button>
+        <button type="submit">Simpan</button>
         <button type="reset">Reset</button>
     </form>
 
@@ -43,26 +43,95 @@
 
     <h3>Riwayat Booking</h3>
     <table border="1" cellpadding="10">
-        <tr>
-            <th>ID</th>
-            <th>Lapangan</th>
-            <th>Tanggal</th>
-            <th>Jam</th>
-            <th>Status</th>
-            <th>Aksi</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Lapangan A</td>
-            <td>2026-03-01</td>
-            <td>18:00 - 19:00</td>
-            <td>Pending</td>
-            <td>
-                <button>Edit</button>
-                <button>Hapus</button>
-            </td>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Lapangan</th>
+                <th>Tanggal</th>
+                <th>Jam</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
     </table>
+
+<script>
+let dataBooking = JSON.parse(localStorage.getItem("booking")) || [];
+let editIndex = null;
+
+function saveToStorage() {
+    localStorage.setItem("booking", JSON.stringify(dataBooking));
+}
+
+function renderTable() {
+    const tableBody = document.getElementById("tableBody");
+    tableBody.innerHTML = "";
+
+    dataBooking.forEach((booking, index) => {
+        tableBody.innerHTML += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${booking.lapangan}</td>
+                <td>${booking.tanggal}</td>
+                <td>${booking.jamMulai} - ${booking.jamSelesai}</td>
+                <td>${booking.status}</td>
+                <td>
+                    <button onclick="editBooking(${index})">Edit</button>
+                    <button onclick="hapusBooking(${index})">Hapus</button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const lapangan = document.getElementById("lapangan").value;
+    const tanggal = document.getElementById("tanggal").value;
+    const jamMulai = document.getElementById("jamMulai").value;
+    const jamSelesai = document.getElementById("jamSelesai").value;
+
+    const bookingBaru = {
+        lapangan,
+        tanggal,
+        jamMulai,
+        jamSelesai,
+        status: "Pending"
+    };
+
+    if (editIndex === null) {
+        dataBooking.push(bookingBaru);   // CREATE
+    } else {
+        dataBooking[editIndex] = bookingBaru; // UPDATE
+        editIndex = null;
+    }
+
+    saveToStorage();
+    renderTable();
+    this.reset();
+});
+
+function editBooking(index){
+    const booking = dataBooking[index];
+
+    document.getElementById("lapangan").value = booking.lapangan;
+    document.getElementById("tanggal").value = booking.tanggal;
+    document.getElementById("jamMulai").value = booking.jamMulai;
+    document.getElementById("jamSelesai").value = booking.jamSelesai;
+
+    editIndex = index;
+}
+
+function hapusBooking(index){
+    dataBooking.splice(index, 1); // DELETE
+    saveToStorage();
+    renderTable();
+}
+
+renderTable(); // READ saat pertama kali load
+</script>
 
 </body>
 </html>
