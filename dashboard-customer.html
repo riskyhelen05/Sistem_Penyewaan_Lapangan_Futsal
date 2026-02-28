@@ -6,25 +6,34 @@
 </head>
 <body>
 
-    <h2>Dashboard Customer</h2>
-    <hr>
+    <header>
+        <h1>Sistem Penyewaan Lapangan Futsal</h1>
+        <hr>
+        <nav>
+            <a href="dashboard-customer.html">Booking</a> |
+            <a href="index.html">Logout</a>
+        </nav>
+        <hr>
+    </header>
 
-    <h3>Form Booking Lapangan</h3>
+    <h2>Dashboard Customer - Booking</h2>
+
+    <h3>Form Booking</h3>
     <form>
         <label>Pilih Lapangan:</label><br>
-        <select name="lapangan">
+        <select>
             <option>Lapangan A</option>
             <option>Lapangan B</option>
         </select><br><br>
 
-        <label>Tanggal Booking:</label><br>
-        <input type="date" name="tanggal"><br><br>
+        <label>Tanggal:</label><br>
+        <input type="date"><br><br>
 
         <label>Jam Mulai:</label><br>
-        <input type="time" name="jam_mulai"><br><br>
+        <input type="time"><br><br>
 
         <label>Jam Selesai:</label><br>
-        <input type="time" name="jam_selesai"><br><br>
+        <input type="time"><br><br>
 
         <button type="submit">Booking</button>
         <button type="reset">Reset</button>
@@ -33,35 +42,27 @@
     <hr>
 
     <h3>Riwayat Booking</h3>
-
     <table border="1" cellpadding="10">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Lapangan</th>
-                <th>Tanggal</th>
-                <th>Jam</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Lapangan A</td>
-                <td>2026-03-01</td>
-                <td>18:00 - 19:00</td>
-                <td>Pending</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Hapus</button>
-                </td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>ID</th>
+            <th>Lapangan</th>
+            <th>Tanggal</th>
+            <th>Jam</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Lapangan A</td>
+            <td>2026-03-01</td>
+            <td>18:00 - 19:00</td>
+            <td>Pending</td>
+            <td>
+                <button>Edit</button>
+                <button>Hapus</button>
+            </td>
+        </tr>
     </table>
-
-    <br>
-    <a href="index.html">Logout</a>
 
 </body>
 </html>

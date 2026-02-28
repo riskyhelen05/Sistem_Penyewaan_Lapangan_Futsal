@@ -6,21 +6,30 @@
 </head>
 <body>
 
-    <h2>Dashboard Admin</h2>
-    <hr>
+    <header>
+        <h1>Sistem Penyewaan Lapangan Futsal</h1>
+        <hr>
+        <nav>
+            <a href="dashboard-admin.html">Master Lapangan</a> |
+            <a href="index.html">Logout</a>
+        </nav>
+        <hr>
+    </header>
+
+    <h2>Dashboard Admin - Master Lapangan</h2>
 
     <h3>Tambah Lapangan</h3>
     <form>
         <label>Nama Lapangan:</label><br>
-        <input type="text" name="nama_lapangan"><br><br>
+        <input type="text"><br><br>
 
         <label>Harga Per Jam:</label><br>
-        <input type="number" name="harga"><br><br>
+        <input type="number"><br><br>
 
         <label>Status:</label><br>
-        <select name="status">
-            <option value="tersedia">Tersedia</option>
-            <option value="maintenance">Maintenance</option>
+        <select>
+            <option>Tersedia</option>
+            <option>Maintenance</option>
         </select><br><br>
 
         <button type="submit">Simpan</button>
@@ -30,33 +39,25 @@
     <hr>
 
     <h3>Data Lapangan</h3>
-
     <table border="1" cellpadding="10">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nama Lapangan</th>
-                <th>Harga</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Lapangan A</td>
-                <td>150000</td>
-                <td>Tersedia</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Hapus</button>
-                </td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Harga</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Lapangan A</td>
+            <td>150000</td>
+            <td>Tersedia</td>
+            <td>
+                <button>Edit</button>
+                <button>Hapus</button>
+            </td>
+        </tr>
     </table>
-
-    <br>
-    <a href="index.html">Logout</a>
 
 </body>
 </html>
