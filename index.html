@@ -1,9 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
     <title>Sistem Penyewaan Lapangan Futsal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <h1>Form Booking Lapangan Futsal</h1>
+
+    <form id="bookingForm">
+
+        <label>Nama Penyewa:</label>
+        <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+
+        <label>No WhatsApp:</label>
+        <input type="text" id="nowa" placeholder="08xxxxxxxxxx">
+
+        <label>Pilih Lapangan:</label>
+        <select id="lapangan">
+            <option value="">-- Pilih Lapangan --</option>
+            <option value="A">Lapangan A</option>
+            <option value="B">Lapangan B</option>
+            <option value="C">Lapangan C</option>
+            <option value="D">Lapangan D</option>
+        </select>
+
+        <label>Tanggal Main:</label>
+        <input type="date" id="tanggal">
+
+        <label>Jam Mulai:</label>
+        <input type="time" id="jamMulai">
+
+        <label>Durasi (Jam):</label>
+        <select id="durasi">
+            <option value="">-- Pilih Durasi --</option>
+            <option value="1">1 Jam</option>
+            <option value="2">2 Jam</option>
+            <option value="3">3 Jam</option>
+            <option value="4">4 Jam</option>
+        </select>
+
+        <label>Metode Pembayaran:</label>
+        <select id="metode">
+            <option value="">-- Pilih Metode --</option>
+            <option value="Cash">Cash</option>
+            <option value="Transfer">Transfer</option>
+            <option value="QRIS">QRIS</option>
+        </select>
+
+        <br><br>
+        <button type="submit">Booking Sekarang</button>
+
+    </form>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
