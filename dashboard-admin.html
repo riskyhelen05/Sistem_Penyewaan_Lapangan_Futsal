@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Admin</title>
+</head>
+<body>
+
+    <h2>Dashboard Admin</h2>
+    <hr>
+
+    <h3>Tambah Lapangan</h3>
+    <form>
+        <label>Nama Lapangan:</label><br>
+        <input type="text" name="nama_lapangan"><br><br>
+
+        <label>Harga Per Jam:</label><br>
+        <input type="number" name="harga"><br><br>
+
+        <label>Status:</label><br>
+        <select name="status">
+            <option value="tersedia">Tersedia</option>
+            <option value="maintenance">Maintenance</option>
+        </select><br><br>
+
+        <button type="submit">Simpan</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <hr>
+
+    <h3>Data Lapangan</h3>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama Lapangan</th>
+                <th>Harga</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Lapangan A</td>
+                <td>150000</td>
+                <td>Tersedia</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Hapus</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href="index.html">Logout</a>
+
+</body>
+</html>
