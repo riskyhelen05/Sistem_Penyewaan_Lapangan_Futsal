@@ -6,156 +6,102 @@
 </head>
 <body>
 
-<header>
-    <h1>Sistem Penyewaan Lapangan Futsal</h1>
+    <header>
+        <h1>Sistem Penyewaan Lapangan Futsal</h1>
+        <hr>
+        <nav>
+            <a href="dashboard-customer.html">Booking</a> |
+            <a href="index.html">Logout</a>
+        </nav>
+        <hr>
+    </header>
+
+    <h2>Dashboard Customer - Booking</h2>
+
+    <!-- FORM BOOKING -->
+    <h3>Form Booking</h3>
+    <form id="formBooking">
+
+        <label>Nama Penyewa</label><br>
+        <input type="text" id="nama" name="nama"><br><br>
+
+        <label>No WhatsApp</label><br>
+        <input type="text" id="kontak" name="kontak"><br><br>
+
+        <label>Pilih Lapangan</label><br>
+        <select id="lapangan" name="lapangan">
+            <option value="Lapangan A">Lapangan A</option>
+            <option value="Lapangan B">Lapangan B</option>
+        </select><br><br>
+
+        <label>Tanggal</label><br>
+        <input type="date" id="tanggal" name="tanggal"><br><br>
+
+        <label>Jam Mulai</label><br>
+        <input type="time" id="jamMulai" name="jamMulai"><br><br>
+
+        <label>Jam Selesai</label><br>
+        <input type="time" id="jamSelesai" name="jamSelesai"><br><br>
+
+        <button type="submit">Booking</button>
+        <button type="reset">Reset</button>
+
+    </form>
+
     <hr>
-</header>
 
-<h2>Form Booking</h2>
-
-<form id="bookingForm">
-    <label>Nama Penyewa</label><br>
-    <input type="text" id="nama" required><br><br>
-
-    <label>No WhatsApp</label><br>
-    <input type="text" id="kontak" required><br><br>
-
-    <label>Pilih Lapangan:</label><br>
-    <select id="lapangan">
-        <option>Lapangan A</option>
-        <option>Lapangan B</option>
-    </select><br><br>
-
-    <label>Tanggal:</label><br>
-    <input type="date" id="tanggal" required><br><br>
-
-    <label>Jam Mulai:</label><br>
-    <input type="time" id="jamMulai" required><br><br>
-
-    <label>Jam Selesai:</label><br>
-    <input type="time" id="jamSelesai" required><br><br>
-
-    <button type="submit">Booking</button>
-    <button type="reset">Reset</button>
-</form>
-
-<hr>
-
-<h3>Lapangan Tersedia</h3>
-<table border="1" cellpadding="10">
-    <tr>
-        <th>ID</th>
-        <th>Lapangan</th>
-        <th>Status</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Lapangan A</td>
-        <td>Tersedia</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Lapangan B</td>
-        <td>Tersedia</td>
-    </tr>
-</table>
-
-<hr>
-
-<h3>Booking Aktif</h3>
-<table border="1" cellpadding="10">
-    <thead>
+    <!-- LAPANGAN TERSEDIA -->
+    <h3>Lapangan Tersedia</h3>
+    <table border="1" cellpadding="10">
         <tr>
             <th>ID</th>
-            <th>Nama</th>
-            <th>Kontak</th>
             <th>Lapangan</th>
             <th>Tanggal</th>
             <th>Jam</th>
             <th>Status</th>
-            <th>Aksi</th>
         </tr>
-    </thead>
-    <tbody id="riwayatBody"></tbody>
-</table>
+        <tr>
+            <td>1</td>
+            <td>Lapangan A</td>
+            <td>2026-03-01</td>
+            <td>18:00 - 19:00</td>
+            <td>Tersedia</td>
+        </tr>
+    </table>
 
-<script>
-let dataBooking = JSON.parse(localStorage.getItem("booking")) || [];
-let editIndex = null;
+    <hr>
 
-function saveToStorage() {
-    localStorage.setItem("booking", JSON.stringify(dataBooking));
-}
-
-function renderTable() {
-    const tbody = document.getElementById("riwayatBody");
-    tbody.innerHTML = "";
-
-    dataBooking.forEach((booking, index) => {
-        tbody.innerHTML += `
+    <!-- BOOKING AKTIF -->
+    <h3>Booking Aktif</h3>
+    <table border="1" cellpadding="10">
+        <thead>
             <tr>
-                <td>${index + 1}</td>
-                <td>${booking.nama}</td>
-                <td>${booking.kontak}</td>
-                <td>${booking.lapangan}</td>
-                <td>${booking.tanggal}</td>
-                <td>${booking.jamMulai} - ${booking.jamSelesai}</td>
-                <td>${booking.status}</td>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Kontak</th>
+                <th>Lapangan</th>
+                <th>Tanggal</th>
+                <th>Jam</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="riwayatBody">
+            <tr>
+                <td>1</td>
+                <td>Helen</td>
+                <td>08123456789</td>
+                <td>Lapangan A</td>
+                <td>2026-03-01</td>
+                <td>18:00 - 19:00</td>
+                <td>Pending</td>
                 <td>
-                    <button onclick="editBooking(${index})">Edit</button>
-                    <button onclick="hapusBooking(${index})">Hapus</button>
+                    <button>Edit</button>
+                    <button>Hapus</button>
                 </td>
             </tr>
-        `;
-    });
-}
-
-document.getElementById("bookingForm").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const bookingBaru = {
-        nama: document.getElementById("nama").value,
-        kontak: document.getElementById("kontak").value,
-        lapangan: document.getElementById("lapangan").value,
-        tanggal: document.getElementById("tanggal").value,
-        jamMulai: document.getElementById("jamMulai").value,
-        jamSelesai: document.getElementById("jamSelesai").value,
-        status: "Aktif"
-    };
-
-    if (editIndex === null) {
-        dataBooking.push(bookingBaru); // CREATE
-    } else {
-        dataBooking[editIndex] = bookingBaru; // UPDATE
-        editIndex = null;
-    }
-
-    saveToStorage();
-    renderTable();
-    this.reset();
-});
-
-function editBooking(index){
-    const booking = dataBooking[index];
-
-    document.getElementById("nama").value = booking.nama;
-    document.getElementById("kontak").value = booking.kontak;
-    document.getElementById("lapangan").value = booking.lapangan;
-    document.getElementById("tanggal").value = booking.tanggal;
-    document.getElementById("jamMulai").value = booking.jamMulai;
-    document.getElementById("jamSelesai").value = booking.jamSelesai;
-
-    editIndex = index;
-}
-
-function hapusBooking(index){
-    dataBooking.splice(index, 1); // DELETE
-    saveToStorage();
-    renderTable();
-}
-
-renderTable();
-</script>
+        </tbody>
+    </table>
 
 </body>
 </html>
