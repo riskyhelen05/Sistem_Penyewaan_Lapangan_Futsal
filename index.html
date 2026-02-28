@@ -7,7 +7,12 @@
 </head>
 <body>
 
-    <h2>Login Sistem Penyewaan Lapangan Futsal</h2>
+    <header>
+        <h1>Sistem Penyewaan Lapangan Futsal</h1>
+        <hr>
+    </header>
+
+    <h2>Login</h2>
 
     <form id="loginForm">
         <label>Username:</label><br>
@@ -28,7 +33,6 @@
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
-            // Simulasi login sementara (nanti bisa dihubungkan ke backend)
             if(username === "admin1" && password === "123"){
                 window.location.href = "dashboard-admin.html";
             } else if(username === "kasir1" && password === "123"){

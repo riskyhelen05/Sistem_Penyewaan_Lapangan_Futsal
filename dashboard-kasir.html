@@ -6,22 +6,31 @@
 </head>
 <body>
 
-    <h2>Dashboard Kasir</h2>
-    <hr>
+    <header>
+        <h1>Sistem Penyewaan Lapangan Futsal</h1>
+        <hr>
+        <nav>
+            <a href="dashboard-kasir.html">Pembayaran</a> |
+            <a href="index.html">Logout</a>
+        </nav>
+        <hr>
+    </header>
+
+    <h2>Dashboard Kasir - Pembayaran</h2>
 
     <h3>Form Pembayaran</h3>
     <form>
         <label>ID Booking:</label><br>
-        <input type="number" name="id_booking"><br><br>
+        <input type="number"><br><br>
 
         <label>Tanggal Bayar:</label><br>
-        <input type="date" name="tanggal_bayar"><br><br>
+        <input type="date"><br><br>
 
         <label>Jumlah Bayar:</label><br>
-        <input type="number" name="jumlah_bayar"><br><br>
+        <input type="number"><br><br>
 
         <label>Metode Pembayaran:</label><br>
-        <select name="metode">
+        <select>
             <option>Cash</option>
             <option>Transfer</option>
             <option>E-Wallet</option>
@@ -34,35 +43,27 @@
     <hr>
 
     <h3>Data Pembayaran</h3>
-
     <table border="1" cellpadding="10">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>ID Booking</th>
-                <th>Tanggal Bayar</th>
-                <th>Jumlah</th>
-                <th>Metode</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>2026-03-01</td>
-                <td>150000</td>
-                <td>Cash</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Hapus</button>
-                </td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>ID</th>
+            <th>ID Booking</th>
+            <th>Tanggal</th>
+            <th>Jumlah</th>
+            <th>Metode</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>2026-03-01</td>
+            <td>150000</td>
+            <td>Cash</td>
+            <td>
+                <button>Edit</button>
+                <button>Hapus</button>
+            </td>
+        </tr>
     </table>
-
-    <br>
-    <a href="index.html">Logout</a>
 
 </body>
 </html>
