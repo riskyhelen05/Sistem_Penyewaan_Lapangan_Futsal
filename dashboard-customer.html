@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Customer</title>
+</head>
+<body>
+
+    <h2>Dashboard Customer</h2>
+    <hr>
+
+    <h3>Form Booking Lapangan</h3>
+    <form>
+        <label>Pilih Lapangan:</label><br>
+        <select name="lapangan">
+            <option>Lapangan A</option>
+            <option>Lapangan B</option>
+        </select><br><br>
+
+        <label>Tanggal Booking:</label><br>
+        <input type="date" name="tanggal"><br><br>
+
+        <label>Jam Mulai:</label><br>
+        <input type="time" name="jam_mulai"><br><br>
+
+        <label>Jam Selesai:</label><br>
+        <input type="time" name="jam_selesai"><br><br>
+
+        <button type="submit">Booking</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <hr>
+
+    <h3>Riwayat Booking</h3>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Lapangan</th>
+                <th>Tanggal</th>
+                <th>Jam</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Lapangan A</td>
+                <td>2026-03-01</td>
+                <td>18:00 - 19:00</td>
+                <td>Pending</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Hapus</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href="index.html">Logout</a>
+
+</body>
+</html>
