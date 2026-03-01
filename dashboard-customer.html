@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Customer</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+    <div class="container">
 
     <header>
         <h1>Sistem Penyewaan Lapangan Futsal</h1>
@@ -32,6 +35,9 @@
         <select id="lapangan" name="lapangan" required>
             <option value="Lapangan A">Lapangan A</option>
             <option value="Lapangan B">Lapangan B</option>
+            <option value="Lapangan B">Lapangan C</option>
+            <option value="Lapangan B">Lapangan D</option>
+            <option value="Lapangan B">Lapangan E</option>
         </select><br><br>
 
         <label>Tanggal</label><br>
@@ -51,8 +57,9 @@
     <hr>
 
     <!-- LAPANGAN TERSEDIA -->
+     
     <h3>Lapangan Tersedia</h3>
-    <table border="1" cellpadding="10">
+    <table>
         <tr>
             <th>ID</th>
             <th>Lapangan</th>
@@ -80,7 +87,7 @@
 
     <!-- BOOKING AKTIF -->
     <h3>Booking Aktif</h3>
-    <table border="1" cellpadding="10">
+    <table>
         <thead>
             <tr>
                 <th>ID</th>
@@ -97,6 +104,7 @@
            
         </tbody>
     </table>
+    </div>
 
     <script src="script/script.js"></script>
 
