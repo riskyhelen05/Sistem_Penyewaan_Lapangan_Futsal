@@ -9,10 +9,10 @@ function validasiNama() {
         alert("Nama Harus Berisi huruf ");
     }
     else if(!pola.test(kontak)) {
-        alert("alamat Harus Berisi huruf ");
+        alert("kontak Harus Berisi angka ");
     }
     else if(!pola.test(lapangan)) {
-        alert("tempat lahir Harus Berisi huruf ");
+        alert("pilih salah satu lapangan");
     }
 
     else
