@@ -11,28 +11,28 @@
 
     <header>
         <h1>Sistem Penyewaan Lapangan Futsal</h1>
-        <hr>
+        <!-- <hr>
         <nav>
             <a href="dashboard-customer.html">Booking</a> |
             <a href="index.html">Logout</a>
-        </nav>
+        </nav> -->
         <hr>
     </header>
 
     <h2>Dashboard Customer - Booking</h2>
 
     <!-- FORM BOOKING -->
-    <h3>Form Booking</h3>
+    <!-- <h3>Form Booking</h3> -->
     <form id="formBooking">
 
         <label>Nama Penyewa</label><br>
-        <input type="text" id="nama" name="nama"><br><br>
+        <input type="text" id="nama" name="nama" required><br><br>
 
         <label>No WhatsApp</label><br>
-        <input type="text" id="kontak" name="kontak"><br><br>
+        <input type="text" id="kontak" name="kontak" required><br><br>
 
         <label>Pilih Lapangan</label><br>
-        <select id="lapangan" name="lapangan">
+        <select id="lapangan" name="lapangan" required>
             <option value="Lapangan A">Lapangan A</option>
             <option value="Lapangan B">Lapangan B</option>
             <option value="Lapangan B">Lapangan C</option>
@@ -41,13 +41,13 @@
         </select><br><br>
 
         <label>Tanggal</label><br>
-        <input type="date" id="tanggal" name="tanggal"><br><br>
+        <input type="date" id="tanggal" name="tanggal" required><br><br>
 
         <label>Jam Mulai</label><br>
-        <input type="time" id="jamMulai" name="jamMulai"><br><br>
+        <input type="time" id="jamMulai" name="jamMulai" required><br><br>
 
         <label>Jam Selesai</label><br>
-        <input type="time" id="jamSelesai" name="jamSelesai"><br><br>
+        <input type="time" id="jamSelesai" name="jamSelesai" required><br><br>
 
         <button type="submit">Booking</button>
         <button type="reset">Reset</button>
@@ -74,6 +74,13 @@
             <td>18:00 - 19:00</td>
             <td>Tersedia</td>
         </tr>
+         <tr>
+            <td>2</td>
+            <td>Lapangan B</td>
+            <td>2026-03-01</td>
+            <td>18:00 - 19:00</td>
+            <td>Tersedia</td>
+        </tr>
     </table>
 
     <hr>
@@ -94,21 +101,12 @@
             </tr>
         </thead>
         <tbody id="riwayatBody">
-            <tr>
-                <td>1</td>
-                <td>Helen</td>
-                <td>08123456789</td>
-                <td>Lapangan A</td>
-                <td>2026-03-01</td>
-                <td>18:00 - 19:00</td>
-                <td>Pending</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Hapus</button>
-                </td>
-            </tr>
+           
         </tbody>
     </table>
     </div>
+
+    <script src="script/script.js"></script>
+
 </body>
 </html>
